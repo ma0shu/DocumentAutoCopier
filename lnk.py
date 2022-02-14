@@ -1,5 +1,5 @@
 # OfficeAutoCopier
-# Author:MyySDSY2021
+# Author:MYY-ShandongExpHighSchool2021
 # Version:0.99.20220214 (Unstable-Dev)
 
 import sys, win32com.client, shutil, os.path, datetime, time
