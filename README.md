@@ -7,9 +7,11 @@ What's more, it even could auto upload them to your own file sharing server (Ava
 
 If you need this, please clone/download lnk.py, edit **line 12&37** and Compile it via pip:
 
-`pip install pypiwin32 webdav4 pyinstaller
+```
+pip install pypiwin32 webdav4 pyinstaller
 
-pyinstaller -F -w --clean --win-private-assemblies lnkdev.py`
+pyinstaller -F -w --clean --win-private-assemblies lnkdev.py
+```
 
 If not, please use compiled versions in the Release, which only support local storage.
 
