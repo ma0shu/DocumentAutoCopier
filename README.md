@@ -1,7 +1,9 @@
 # DocumentAutoCopier
 
-![https://space.bilibili.com/162182447](https://img.shields.io/badge/Author-Mayiyi(A beginner)-green.svg?style=flat-square)
-  ![](https://img.shields.io/badge/Language-Python-blue.svg?style=flat-square)
+![](https://img.shields.io/badge/Latest-0.99.20220227-yellow.svg?style=flat-square)
+[![](https://img.shields.io/badge/Author-Mayiyi(A beginner)-green.svg?style=flat-square)(https://space.bilibili.com/162182447)]
+![](https://img.shields.io/badge/Language-Python-blue.svg?style=flat-square)
+
 
 A python program to auto copy recently opened Office documents to a certain folder each minute.
 
