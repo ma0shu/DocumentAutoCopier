@@ -1,6 +1,6 @@
 
 <h2 align="center">DocumentAutoCopier</h2>
-<p align="center">
+
 ![](https://img.shields.io/badge/Latest-0.99.20220227-yellow.svg?style=for-the-badge&logo=superuser)
 [![logo](https://img.shields.io/badge/Author-Mayiyi_A_Beginner-green.svg?style=for-the-badge)](https://space.bilibili.com/162182447)
 ![](https://img.shields.io/badge/Language-Python-blue.svg?style=for-the-badge)
