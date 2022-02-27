@@ -1,32 +1,43 @@
-# OfficeAutoCopier
-# Author:MYY-ShandongExpHighSchool2021
-# Version:0.99.20220214 (Unstable-Dev)
-
+'''
+OfficeAutoCopier
+Author:Myy-ShanDongExpHighSchool2021
+Ver:0.99.20220227 (Unstable-Beta)
+'''
 import sys, win32com.client, shutil, os.path, datetime, time
 from webdav4.client import Client
+shell = win32com.client.Dispatch("WScript.Shell")
 
-##ServerUrl
-client = Client(base_url='!!Please_replace_your_Server_url', auth=('Your_username', 'Your_password'))
-##LocalPath
-base_dir=os.path.join(os.environ['USERPROFILE'],"AppData\Roaming\Microsoft\Office\Recent\\")
-index_dat=os.path.join(os.environ['USERPROFILE'],"AppData\Roaming\Microsoft\Office\Recent\index.dat")
-target_dir=os.path.join(os.environ['USERPROFILE'],"Desktop\PPTS\\")
-if not os.path.exists(target_dir):
-    os.makedirs(target_dir)
-##Sorting
-l_oldl=os.listdir(base_dir)
-l_oldl.sort(key=lambda fn: os.path.getmtime(base_dir+fn) if not os.path.isdir(base_dir+fn) else 0)
-l_old=l_oldl[-1]
-##CheckandCopy
+#【Remote Path】
+# Webdav needed, "Nextcloud" or "Kodbox" recommend.
+client = Client(base_url='(InputYourWebdavAddressHere!)', auth=('(InputYourUsernameHere!)', '(InputYourPasswordHere!)'))
+
+#【Local Path】
+# File will be placed at "~/Desktop/PPTS".
+BaseDir=os.path.join(os.environ['USERPROFILE'],"AppData\Roaming\Microsoft\Office\Recent\\")
+IndexDat=os.path.join(os.environ['USERPROFILE'],"AppData\Roaming\Microsoft\Office\Recent\index.dat")
+TargetDir=os.path.join(os.environ['USERPROFILE'],"Desktop\PPTS\\")
+if not os.path.exists(TargetDir):
+    os.makedirs(TargetDir)
+
+#【Loop Running】
 while True:
-    if os.path.exists(index_dat) == True:
-        os.remove(index_dat)  ##Avoiding Bugs
-    l=os.listdir(base_dir)
-    l.sort(key=lambda fn: os.path.getmtime(base_dir+fn) if not os.path.isdir(base_dir+fn) else 0)
-    shell = win32com.client.Dispatch("WScript.Shell")
-    if l_old != l[-1] :
-        shortcut = shell.CreateShortCut(base_dir+l[-1])
-        l_old = l[-1]
-        shutil.copy(shortcut.Targetpath, target_dir)
-        client.upload_file(from_path=os.path.join(target_dir,os.path.splitext(l[-1])[0]), to_path=os.path.join('/YourFolderPath',os.path.splitext(l[-1])[0]), overwrite=True)
+    # Some version of MSOffice will automatically create "index.dat" log in our recent folder, which lead to errors. Delete it.
+    if os.path.exists(IndexDat) == True:
+        os.remove(IndexDat)  
+    #【Sort Files】
+    link=os.listdir(BaseDir)
+    link.sort(key=lambda fn: os.path.getmtime(BaseDir+fn) if not os.path.isdir(BaseDir+fn) else 0)
+    filename=os.path.splitext(link[-1])[0]
+    #【Check Existence】
+    if not os.path.exists(os.path.join(TargetDir,filename)):
+        #【Locate&Copy】
+        shortcut = shell.CreateShortCut(BaseDir+link[-1])
+        shutil.copy(shortcut.Targetpath, TargetDir)
+        #【Upload2Webdisk】
+        client.upload_file(from_path=os.path.join(TargetDir,filename), to_path=os.path.join('/YourPath',filename), overwrite=True)
+    '''
+    Check new file per minute in order to save perf. 
+    This may cause only the last one to be copied when opening two files in a short time, 
+    so make your own choices.
+    '''
     time.sleep(60)
