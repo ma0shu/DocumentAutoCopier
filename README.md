@@ -21,7 +21,7 @@ pip install pypiwin32 webdav4 pyinstaller
 pyinstaller -F -w --clean --win-private-assemblies lnkdev.py
 ```
 
-If not, please use compiled versions in the Release, which only support local storage.
+If not, please use compiled versions in the Release, which only support local storage.（Need to make a dir named "PPTS" on the Desktop）
 
 Btw I'm studying in high school so I may not read issues in time——and maybe I'm unable to solve all the problems. 
 
