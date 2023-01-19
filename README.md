@@ -3,8 +3,8 @@
 
 # DocumentAutoCopier 课件自动复制上传器
 
-![](https://img.shields.io/badge/Latest-0.99.20220227-yellow.svg?style=for-the-badge&logo=superuser)
-[![](https://img.shields.io/badge/Author-Mayiyi_A_Beginner-green.svg?style=for-the-badge)](https://space.bilibili.com/162182447)
+![](https://img.shields.io/badge/Latest-0.99.20230119-yellow.svg?style=for-the-badge&logo=superuser)
+[![](https://img.shields.io/badge/Author-Mayiyi_A_Beginner-green.svg?style=for-the-badge&logo=darkreader)](https://space.bilibili.com/162182447)
 ![](https://img.shields.io/badge/Language-Python-blue.svg?style=for-the-badge&logo=python)
 
 ## Introduction
