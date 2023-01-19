@@ -1,6 +1,7 @@
 
-<h1 align="center">第二十三届济南市学生信息素养
-提升实践活动参赛作品 课件自动复制上传器 DocumentAutoCopier</h1>
+<h3 align="center">第二十三届济南市学生信息素养提升实践活动参赛作品</h3>
+
+# DocumentAutoCopier 课件自动复制上传器
 
 ![](https://img.shields.io/badge/Latest-0.99.20220227-yellow.svg?style=for-the-badge&logo=superuser)
 [![](https://img.shields.io/badge/Author-Mayiyi_A_Beginner-green.svg?style=for-the-badge)](https://space.bilibili.com/162182447)
