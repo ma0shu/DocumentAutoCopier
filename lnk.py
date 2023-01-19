@@ -8,7 +8,7 @@ from webdav4.client import Client
 shell = win32com.client.Dispatch("WScript.Shell")
 config = configparser.ConfigParser()
 programpath = os.path.dirname(os.path.abspath(__file__))
-config.read(file+'/config.ini')
+config.read(programpath+'/config.ini')
 
 #【Remote Path】
 # Webdav needed, "Nextcloud" or "Kodbox" recommend
